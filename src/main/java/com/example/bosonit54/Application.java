@@ -1,5 +1,6 @@
 package com.example.bosonit54;
 
+import com.example.bosonit54.Controller.Controler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class Application implements CommandLineRunner {
 	@Qualifier("secondMessage")
 	private String message2;
 
+	@Autowired
+	@Qualifier("thirdMessage")
+	private String message3;
+
+	@Autowired
+	private Controler addMessage;
 	private static Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
@@ -30,5 +37,6 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 	log.info(message1);
 	log.info(message2);
+	log.info(message3);
 	}
 }

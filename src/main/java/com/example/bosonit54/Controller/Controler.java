@@ -1,8 +1,11 @@
 package com.example.bosonit54.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class Controler {
@@ -11,6 +14,9 @@ public class Controler {
     private String message1;
     @Value("${my.number}")
     private String message2;
+
+    @Value("${new.property:new.property no tiene valor}")
+    private String message3;
 
     @Bean("firstMessage")
     public String getMessage1(){
@@ -21,4 +27,11 @@ public class Controler {
     public String getMessage2(){
         return message2;
     }
+
+    @Bean("thirdMessage")
+    public String getMessage3(){
+    return "el valor de new.Property es: " + message3;
+    }
+
+
 }
